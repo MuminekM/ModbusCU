@@ -3,4 +3,3 @@ iso8601==0.1.12
 modbus-tk==0.5.9
 pyserial==3.4
 PyYAML==4.2b1
-serial==0.0.96
