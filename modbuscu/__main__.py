@@ -13,7 +13,8 @@ if __name__ == "__main__":
                         level=logging.DEBUG)
     try:
         server = modbus_rtu.RtuServer(serial.Serial(PORT))
-    except serial.serialutil.SerialException:
+    except Exception as e:
+        print(e)
         logging.error(f'Wybrany port szeregowy {PORT} nie jest dostępny', exc_info=False)
         raise ValueError('Wybrany port szeregowy nie jest dostępny')
     server.start()
