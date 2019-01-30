@@ -34,13 +34,14 @@ class Coil:
         instance.device.set_values(self.name, self.address, value)
 
 class InputRegister:
-    def __init__(self, name, address, device):
+    def __init__(self, name, address, device, length=1):
         self.name = name
         self.address = address
-        device.add_block(name, cst.READ_INPUT_REGISTERS, address, 1)
+        self.length = length
+        device.add_block(name, cst.READ_INPUT_REGISTERS, address, self.length)
 
     def __get__(self, instance, owner):
-        return instance.device.get_values(self.name, self.address, 1)
+        return instance.device.get_values(self.name, self.address, self.length)
 
     def __set__(self, instance, value):
         raise NotImplemented(f'{self.name} input register jest read only')

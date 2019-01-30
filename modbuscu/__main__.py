@@ -4,6 +4,7 @@ from modbuscu.zasilacz_awaryjny import ZasilaczAwaryjny
 from modbus_tk import modbus_rtu
 import serial
 import sys
+import time
 
 if __name__ == "__main__":
 
@@ -31,5 +32,6 @@ if __name__ == "__main__":
     rekuperator.wietrzenie = 0
     print(rekuperator.wietrzenie)
     rekuperator.wietrzenie = -1
+    print(rekuperator.godzina)
     #zasilacz = zasilacz_awaryjny.ZasilaczAwaryjny(server=server, address=400)
     server.stop()
